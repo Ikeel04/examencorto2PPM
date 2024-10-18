@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1064420286919",
+    "project_id": "chatsecreto1-99d3a",
+    "storage_bucket": "chatsecreto1-99d3a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064420286919:android:0b27fcbe1a27c2024d39e2",
+        "android_client_in12345fo": {
+          "package_name": "edu.uvg.uvgchatejemplo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACZou-nvv1_BwwdJHjS8C0kUUCG0CsDtk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

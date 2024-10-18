@@ -1,6 +1,5 @@
 package edu.uvg.uvgchatejemplo.screen
 
-import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -23,8 +22,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import edu.uvg.uvgchatejemplo.viewmodel.AuthViewModel
 import edu.uvg.uvgchatejemplo.data.Result
+import edu.uvg.uvgchatejemplo.viewmodel.AuthViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

@@ -1,3 +1,5 @@
+@file:Suppress("UNREACHABLE_CODE")
+
 package edu.uvg.uvgchatejemplo
 
 import android.os.Build
@@ -19,7 +21,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import edu.uvg.uvgchatejemplo.screen.ChatRoomListScreen
-import edu.uvg.uvgchatejemplo.screen.ChatScreen
 import edu.uvg.uvgchatejemplo.screen.Screen
 import edu.uvg.uvgchatejemplo.screen.SignUpScreen
 import edu.uvg.uvgchatejemplo.screen.LoginScreen
@@ -42,6 +43,7 @@ class MainActivity : ComponentActivity() {
                     Surface(
                         modifier = Modifier.padding(innerPadding),
                         color = MaterialTheme.colorScheme.background
+
                     ) {
                         NavigationGraph(navController = navController, authViewModel = authViewModel)
                     }
@@ -85,8 +87,29 @@ fun NavigationGraph(
         composable("${Screen.ChatScreen.route}/{roomId}") {
             val roomId: String = it
                 .arguments?.getString("roomId") ?: ""
-            ChatScreen(roomId = roomId)
+            ChatViewModelScreen(
+                roomId = roomId,
+                chatViewModel = TODO(),
+                onBack = TODO()
+            )
         }
+        composable("${Screen.ChatScreen.route}/{roomId}") { backStackEntry ->
+            val roomId: String = backStackEntry.arguments?.getString("roomId") ?: ""
+            ChatViewModelScreen(
+                roomId = roomId,
+                onBack = { navController.popBackStack() }
+            )
+        }
+        composable(Screen.ChatRoomsScreen.route) {
+            ChatRoomListScreen(
+                onJoinClicked = { room ->
+                    navController.navigate("${Screen.ChatScreen.route}/${room.id}")
+                }
+            )
+        }
+
+
     }
 }
+
 

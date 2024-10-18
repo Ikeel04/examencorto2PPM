@@ -51,7 +51,7 @@ fun ChatRoomListScreen(
         // Display a list of chat rooms
         LazyColumn {
             items(rooms) { room ->
-                RoomItem(room = room, onJoinClicked = {onJoinClicked(room)})
+                RoomItem(room = room, onJoinClicked = { onJoinClicked(room) })
             }
         }
 
@@ -60,18 +60,18 @@ fun ChatRoomListScreen(
         // Button to create a new room
         Button(
             onClick = {
-               showDialog = true
+                showDialog = true
             },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Create Room")
         }
 
-
         if (showDialog){
-            AlertDialog( onDismissRequest = { showDialog = true },
+            AlertDialog(
+                onDismissRequest = { showDialog = false },
                 title = { Text("Create a new room") },
-                text={
+                text = {
                     OutlinedTextField(
                         value = name,
                         onValueChange = { name = it },
@@ -80,7 +80,8 @@ fun ChatRoomListScreen(
                             .fillMaxWidth()
                             .padding(8.dp)
                     )
-                }, confirmButton = {
+                },
+                confirmButton = {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -103,7 +104,8 @@ fun ChatRoomListScreen(
                             Text("Cancel")
                         }
                     }
-                })
+                }
+            )
         }
     }
 }
@@ -125,7 +127,8 @@ fun RoomItem(room: Room, onJoinClicked: (Room) -> Unit) {
         Text(text = room.name, fontSize = 16.sp, fontWeight = FontWeight.Normal)
         OutlinedButton(
             onClick = { onJoinClicked(room) }
-        ) {
+        )
+        {
             Text("Join")
         }
     }
